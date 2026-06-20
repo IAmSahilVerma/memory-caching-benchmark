@@ -29,11 +29,6 @@ class GRUBaseline(nn.Module):
         nn.init.normal_(self.embedding.weight, std=0.02)
         nn.init.zeros_(self.head.bias)
         nn.init.normal_(self.head.weight, std=0.02)
-        for name, param in self.gru.named_parameters():
-            if "weight" in name:
-                nn.init.orthogonal_(param)
-            elif "bias" in name:
-                nn.init.zeros_(param)
                 
     def forward(
         self,
